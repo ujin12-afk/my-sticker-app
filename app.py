@@ -12,7 +12,7 @@ def get_image_base64(path):
     return base64.b64encode(data).decode()
 
 # 2. 페이지 설정
-st.set_page_config(page_title="Jazz UP Your Soul", layout="centered")
+st.set_page_config(page_title="서재페로 프사 꾸미기", layout="centered")
 
 # 3. 디자인 및 레이아웃 설정
 st.markdown(
@@ -89,8 +89,8 @@ if os.path.exists(logo_path):
 st.markdown(
     """
     <div class='header-container'>
-        <div class='fix-main-title'>Jazz UP Your Soul</div>
-        <div class='fix-sub-title'>프꾸 w.서울재즈페스티벌</div>
+        <div class='fix-main-title'>서재페로 프사 꾸미기</div>
+        <div class='fix-sub-title'>서울재즈페스티벌 x 멜론티켓</div>
     </div>
     """, 
     unsafe_allow_html=True
