@@ -4,12 +4,12 @@ import os
 import io
 
 # 1. 페이지 설정 및 제목
-st.set_page_config(page_title="Jazz UP Your Soul♫", layout="centered")
+st.set_page_config(page_title="Jazz UP Your Soul ♫", layout="centered")
 st.markdown(
     """
     <div style='display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin-bottom: 30px;'>
         <h1 style='text-align: center; font-size: 28px; white-space: nowrap; margin: 0; padding-right: 5px;'>
-            Jazz UP Your Soul♫
+            Jazz UP Your Soul ♫
         </h1>
         <p style='text-align: center; font-size: 16px; color: #666; margin-top: 5px;'>
             프사에 서재페 스티커 붙이기
