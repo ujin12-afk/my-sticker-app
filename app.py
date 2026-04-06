@@ -1,5 +1,5 @@
 import streamlit as st
-from PIL import Image, ImageDraw
+from PIL import Image, ImageOps, ImageDraw
 import os
 import io
 import random
@@ -116,7 +116,14 @@ if not uploaded_file:
 # 8. 이미지 합성 로직 (사진 업로드 시 작동)
 if uploaded_file:
     with st.spinner('스티커 입히는 중...🎷'):
-        base_img = Image.open(uploaded_file).convert("RGBA")
+        # --- [STEP 1: 원본 이미지 불러오기 & 방향 보정] ---
+        temp_img = Image.open(uploaded_file)
+        
+        # ⭐ 진짜 완벽 해결 포인트: 사진의 EXIF 회전 정보를 확인해서 똑바로 세워줍니다!
+        base_img = ImageOps.exif_transpose(temp_img).convert("RGBA")
+        
+        # --- [STEP 2: 원형 프사 크롭 및 스티커 합성] ---
+        # (이후 로직은 기존과 동일하지만 전체 교체를 위해 포함합니다)
         min_dim = min(base_img.size)
         left = (base_img.width - min_dim) // 2
         top = (base_img.height - min_dim) // 2
@@ -140,13 +147,14 @@ if uploaded_file:
                 sticker_img = sticker_img.resize(result_img.size, Image.LANCZOS)
                 result_img.paste(sticker_img, (0, 0), sticker_img)
 
-                st.image(result_img, caption="완성된 프사입니다! ✨", use_container_width=True)
+                # --- [STEP 3: 최종 결과 출력 및 다운로드] ---
+                st.image(result_img, caption="짜잔! 완성된 프사입니다! ✨", use_container_width=True)
 
                 buf = io.BytesIO()
                 result_img.save(buf, format="PNG")
                 st.download_button(
                     label="📥 원형 프사 다운로드 (PNG)",
                     data=buf.getvalue(),
-                    file_name="sjf_profile.png",
+                    file_name="sjf_profile_result.png",
                     mime="image/png"
                 )
