@@ -107,7 +107,7 @@ if not uploaded_file:
                 <img src="data:image/png;base64,{poster_base64}" style="width:100%; border-radius:10px;">
             </a>
             <p style='text-align:center; color:#ffe0e6; font-size:12px; margin-top:5px;'>
-                👆 포스터를 클릭하면 예매 페이지로 이동합니다!
+                포스터를 클릭하면 예매 페이지로 이동합니다.
             </p>
             """, 
             unsafe_allow_html=True
@@ -148,7 +148,7 @@ if uploaded_file:
                 result_img.paste(sticker_img, (0, 0), sticker_img)
 
                 # --- [STEP 3: 최종 결과 출력 및 다운로드] ---
-                st.image(result_img, caption="짜잔! 완성된 프사입니다! ✨", use_container_width=True)
+                st.image(result_img, caption="완성된 프로필 사진을 적용해보세요 🕺🏻", use_container_width=True)
 
                 buf = io.BytesIO()
                 result_img.save(buf, format="PNG")
