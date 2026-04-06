@@ -45,15 +45,14 @@ st.markdown(
     
     /* ⭐ h1 대신 일반 div를 사용하여 브라우저의 자동 확대를 방지 */
     .fix-main-title {
-        font-size: 22px !important; /* !important로 강제 고정 */
+        font-size: 26px !important; 
         font-weight: 800 !important;
-        color: #ffe0e6 !important;
+        color: white !important;
         margin: 0 !important;
         padding: 0 !important;
         line-height: 1.1 !important;
         white-space: nowrap !important;
         display: block !important;
-    }
     
     .fix-sub-title {
         font-size: 14px !important;
