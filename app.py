@@ -5,8 +5,14 @@ import io
 
 # 1. 페이지 설정 및 제목
 st.set_page_config(page_title="Jazz UP Your Soul✨", layout="centered")
-st.title("Jazz UP Your Soul✨")
-st.subheader("프사에 서재페 스티커 붙이기")
+st.markdown(
+    """
+    <h1 style='text-align: center; font-size: 28px; white-space: nowrap;'>
+        Jazz UP Your Soul✨
+    </h1>
+    """, 
+    unsafe_allow_html=True
+)
 
 # 2. 사진 업로드 (업로드되는 순간 아래 코드들이 실행됩니다)
 uploaded_file = st.file_uploader("꾸밀 프로필을 선택해주세요!", type=['png', 'jpg', 'jpeg'])
