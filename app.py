@@ -4,21 +4,47 @@ import os
 import io
 
 # 1. 페이지 설정 및 제목
-st.set_page_config(page_title="Jazz UP Your Soul ♫", layout="centered")
+st.set_page_config(page_title="Jazz UP Your Soul✨", layout="centered")
 st.markdown(
     """
-    <div style='display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin-bottom: 30px;'>
-        <h1 style='text-align: center; font-size: 28px; white-space: nowrap; margin: 0; padding-right: 10px;'>
-            Jazz UP Your Soul ♫
-        </h1>
-        <p style='text-align: center; font-size: 16px; color: #666; margin-top: 5px;'>
-            프사에 서재페 스티커 붙이기
-        </p>
+    <style>
+    /* 제목 영역을 중앙으로 정렬 */
+    .title-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+    .main-title {
+        font-size: 28px;
+        font-weight: bold;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        white-space: nowrap;
+    }
+    .sub-title {
+        font-size: 16px;
+        color: #666;
+        margin-top: 8px;
+        text-align: center;
+    }
+    /* 업로드 안내 문구(Label)는 원래대로 왼쪽 정렬 */
+    .stFileUploader label {
+        text-align: left !important;
+        display: block !important;
+    }
+    </style>
+    
+    <div class='title-container'>
+        <h1 class='main-title'>Jazz UP Your Soul✨</h1>
+        <p class='sub-title'>프사에 서재페 스티커 붙이기</p>
     </div>
     """, 
     unsafe_allow_html=True
 )
-
 # 2. 사진 업로드 (업로드되는 순간 아래 코드들이 실행됩니다)
 uploaded_file = st.file_uploader("꾸밀 프로필을 선택해주세요!", type=['png', 'jpg', 'jpeg'])
 
