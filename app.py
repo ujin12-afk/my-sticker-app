@@ -42,7 +42,7 @@ st.markdown(
     .logo-img {
         height: 22px; /* 제목 높이에 맞춘 로고 사이즈 */
         width: auto;
-        margin-right: 8px; /* 로고와 텍스트 사이 간격 */
+        margin-right: 4px; /* 로고와 텍스트 사이 간격 */
         flex-shrink: 0;
     }
     
