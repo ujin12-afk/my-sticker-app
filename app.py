@@ -15,65 +15,86 @@ def get_image_base64(path):
 st.set_page_config(page_title="Jazz UP Your Soul", layout="centered")
 
 # 3. 디자인 및 레이아웃 설정 (모바일 최적화)
+# 3. 디자인 및 레이아웃 설정 (모바일 잘림 완벽 방지 버전)
 st.markdown(
     """
     <style>
-    /* 전체 배경색 변경 (#f96c88) */
     .stApp {
         background-color: #f96c88;
     }
     
-    /* 제목 & 로고 영역 (Flexbox) */
-    .title-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px; /* 로고와 글자 사이 간격 살짝 줄임 */
-        margin-bottom: 20px;
+    /* 제목 전체를 감싸는 컨테이너 */
+    .header-container {
         width: 100%;
-        /* ⭐ 핵심: 양옆 여백을 줘서 로고가 화면 끝에 붙어 잘리는 것 방지 */
-        padding: 0 20px; 
+        text-align: center;
+        padding: 0 10px; /* 양옆 안전 여백 */
+        margin-bottom: 25px;
     }
     
-    /* 메인 제목 스타일 (대폭 축소) */
+    /* 로고와 제목을 인라인으로 배치 */
+    .title-box {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+    }
+    
+    .logo-img {
+        height: 22px; /* 로고 높이 고정 */
+        width: auto;
+        margin-right: 8px; /* 로고와 텍스트 사이 간격 */
+        flex-shrink: 0; /* 로고가 찌그러지지 않게 방어 */
+    }
+    
     .main-title {
-        /* ⭐ 제목 크기를 이전보다 더 줄였습니다. (기존 22px~28px -> 현재 18px~22px) */
-        font-size: clamp(12px, 5vw, 18px); 
+        font-size: 22px; /* 폰트 크기 고정 (안전하게) */
         font-weight: bold;
-        color: white; /* 분홍 배경에 맞춰 흰색 글씨 */
+        color: white;
         margin: 0;
         padding: 0;
         line-height: 1.2;
-        /* 긴 제목 대응: 한 줄 유지 */
-        white-space: nowrap; 
+        white-space: nowrap; /* 절대 줄바꿈 금지 */
     }
     
-    /* 멜론티켓 로고 스타일 */
-    .logo-img {
-        /* ⭐ 로고 높이도 줄어든 제목 크기에 맞춰 자동으로 조절됩니다. */
-        height: clamp(18px, 5vw, 22px); 
-        width: auto; /* 비율 유지 */
-    }
-    
-    /* 부제목 스타일 (프꾸 w.서울재즈페스티벌) */
     .sub-title {
-        font-size: 14px; /* 조금 더 작게 */
+        font-size: 14px;
         color: #ffe0e6;
         text-align: center;
-        margin-top: -10px;
-        margin-bottom: 30px;
+        margin-top: 8px;
         width: 100%;
     }
     
-    /* 업로드 영역 안내 문구 흰색으로 */
     .stFileUploader label {
         color: white !important;
-        text-align: left !important;
     }
     </style>
     """, 
     unsafe_allow_html=True
 )
+
+# 4. 제목 및 로고 표시 부분
+logo_path = "melonticketlogo.png"
+sub_title_text = "프꾸 w.서울재즈페스티벌"
+
+if os.path.exists(logo_path):
+    logo_base64 = get_image_base64(logo_path)
+    st.markdown(
+        f"""
+        <div class='header-container'>
+            <div class='title-box'>
+                <img src='data:image/png;base64,{logo_base64}' class='logo-img'>
+                <h1 class='main-title'>Jazz UP Your Soul</h1>
+            </div>
+            <p class='sub-title'>{sub_title_text}</p>
+        </div>
+        """, 
+        unsafe_allow_html=True
+    )
+else:
+    st.markdown(
+        f"<div class='header-container'><h1 class='main-title'>Jazz UP Your Soul</h1><p class='sub-title'>{sub_title_text}</p></div>", 
+        unsafe_allow_html=True
+    )
 
 # 4. 제목 및 로고 표시 (Base64 방식 사용)
 logo_path = "melonticketlogo.png"
