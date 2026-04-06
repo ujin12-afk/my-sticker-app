@@ -7,7 +7,7 @@ import io
 st.set_page_config(page_title="Jazz UP Your Soul✨", layout="centered")
 
 # 2. 디자인 및 레이아웃 설정
-# 2. 디자인 및 레이아웃 설정 (모바일 최적화 버전)
+# 2. 디자인 및 레이아웃 설정
 st.markdown(
     """
     <style>
@@ -17,30 +17,24 @@ st.markdown(
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-bottom: 20px;
-        padding: 0 5px;
+        margin-bottom: 25px;
+        padding: 0 10px; /* 양옆 여백 추가 */
     }
     .main-title {
-        /* 기본 크기를 22px로 낮추고, 화면이 아주 작으면 더 작아지게 설정 */
-        font-size: clamp(18px, 6vw, 24px); 
+        font-size: 24px; /* 크기를 살짝 줄여서 모바일에서 안 잘리게 함 */
         font-weight: bold;
         margin: 0;
         padding: 0;
         text-align: center;
-        white-space: nowrap;
         line-height: 1.2;
-        /* 이모지 무게 중심을 맞추기 위한 미세 조정 */
-        padding-left: 15px; 
+        /* 이모지 때문에 왼쪽으로 쏠려 보일 때를 대비한 보정값 */
+        padding-left: 20px; 
     }
     .sub-title {
-        font-size: clamp(13px, 4vw, 15px);
+        font-size: 15px;
         color: #666;
         margin-top: 5px;
         text-align: center;
-    }
-    .stFileUploader label {
-        text-align: left !important;
-        display: block !important;
     }
     </style>
     
@@ -51,6 +45,8 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
+
+
 
 # 3. 사진 업로드
 uploaded_file = st.file_uploader("꾸밀 프로필을 선택해주세요!", type=['png', 'jpg', 'jpeg'])
