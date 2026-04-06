@@ -74,7 +74,7 @@ else:
         <div class='title-wrapper'>
             <h1 class='main-title'>Jazz UP Your Soul</h1>
         </div>
-        <p class='sub-title'>프사에 서재페 스티커 붙이기</p>
+        <p class='sub-title'>프꾸 w.서울재즈페스티벌</p>
         """, 
         unsafe_allow_html=True
     )
