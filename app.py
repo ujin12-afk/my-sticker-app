@@ -90,7 +90,7 @@ st.markdown(
 )
 
 # 6. 사진 업로드 창
-uploaded_file = st.file_uploader("꾸밀 프로필을 선택해주세요!", type=['png', 'jpg', 'jpeg'])
+uploaded_file = st.file_uploader("프로필 사진을 넣어주세요!", type=['png', 'jpg', 'jpeg'])
 
 # 7. 하단 포스터 (사진 올리기 전까지만 보임)
 poster_path = "SJFposter.png"
