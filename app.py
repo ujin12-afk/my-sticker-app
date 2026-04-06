@@ -92,13 +92,26 @@ st.markdown(
 # 6. 사진 업로드 창
 uploaded_file = st.file_uploader("프로필 사진을 넣어주세요!", type=['png', 'jpg', 'jpeg'])
 
-# 7. 하단 포스터 (사진 올리기 전까지만 보임)
+# 7. 하단 포스터 (사진 올리기 전 상태)
 poster_path = "SJFposter.png"
+target_url = "https://tktapi.melon.com/gate/landing.json?type=perf&contId=212811"
+
 if not uploaded_file:
     st.markdown("<br>", unsafe_allow_html=True)
     if os.path.exists(poster_path):
-        poster = Image.open(poster_path)
-        st.image(poster, use_container_width=True)
+        # 이미지를 base64로 변환해서 HTML로 뿌려줍니다 (클릭 가능하게)
+        poster_base64 = get_image_base64(poster_path)
+        st.markdown(
+            f"""
+            <a href="{target_url}" target="_blank">
+                <img src="data:image/png;base64,{poster_base64}" style="width:100%; border-radius:10px;">
+            </a>
+            <p style='text-align:center; color:#ffe0e6; font-size:12px; margin-top:5px;'>
+                👆 포스터를 클릭하면 예매 페이지로 이동합니다!
+            </p>
+            """, 
+            unsafe_allow_html=True
+        )
 
 # 8. 이미지 합성 로직 (사진 업로드 시 작동)
 if uploaded_file:
