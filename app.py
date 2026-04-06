@@ -8,33 +8,30 @@ st.set_page_config(page_title="Jazz UP Your Soul✨", layout="centered")
 st.markdown(
     """
     <style>
-    /* 제목 영역을 중앙으로 정렬 */
     .title-container {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
+        padding: 0 10px; /* 양옆 여백 추가 */
     }
     .main-title {
-        font-size: 28px;
+        font-size: 24px; /* 크기를 살짝 줄여서 모바일에서 안 잘리게 함 */
         font-weight: bold;
         margin: 0;
         padding: 0;
         text-align: center;
-        white-space: nowrap;
+        line-height: 1.2;
+        /* 이모지 때문에 왼쪽으로 쏠려 보일 때를 대비한 보정값 */
+        padding-left: 20px; 
     }
     .sub-title {
-        font-size: 16px;
+        font-size: 15px;
         color: #666;
-        margin-top: 8px;
+        margin-top: 5px;
         text-align: center;
-    }
-    /* 업로드 안내 문구(Label)는 원래대로 왼쪽 정렬 */
-    .stFileUploader label {
-        text-align: left !important;
-        display: block !important;
     }
     </style>
     
@@ -45,6 +42,8 @@ st.markdown(
     """, 
     unsafe_allow_html=True
 )
+
+
 # 2. 사진 업로드 (업로드되는 순간 아래 코드들이 실행됩니다)
 uploaded_file = st.file_uploader("꾸밀 프로필을 선택해주세요!", type=['png', 'jpg', 'jpeg'])
 
