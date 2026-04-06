@@ -15,7 +15,6 @@ def get_image_base64(path):
 st.set_page_config(page_title="Jazz UP Your Soul", layout="centered")
 
 # 3. 디자인 및 레이아웃 설정
-# 배경색 #f96c88, 제목/자막 색상 #ffe0e6 통일
 st.markdown(
     """
     <style>
@@ -23,15 +22,15 @@ st.markdown(
         background-color: #f96c88;
     }
     
-    /* 오른쪽 상단 로고 고정 스타일 */
+    /* 오른쪽 상단 로고 */
     .top-right-logo {
         position: absolute;
-        top: 10px;
-        right: 15px;
+        top: 5px;
+        right: 10px;
         z-index: 100;
     }
     .top-right-logo img {
-        width: 80px; /* 로고 크기 조절 */
+        width: 45px; /* 조금 더 줄임 */
         height: auto;
     }
 
@@ -39,24 +38,30 @@ st.markdown(
     .header-container {
         width: 100%;
         text-align: center;
-        margin-top: 40px; /* 로고와 겹치지 않게 상단 여백 추가 */
+        margin-top: 30px;
         margin-bottom: 25px;
+        padding: 0 10px; /* 양옆 여백 */
     }
     
     .main-title {
-        font-size: clamp(24px, 7vw, 32px);
+        /* ⭐ 핵심: vw(화면너비단위)를 사용하여 화면이 좁아지면 글자도 같이 작아지게 함 */
+        font-size: clamp(20px, 8vw, 28px); 
         font-weight: bold;
-        color: white
+        color: white;
         margin: 0;
         padding: 0;
         line-height: 1.2;
+        /* ⭐ 절대 줄바꿈 되지 않도록 강제 */
+        white-space: nowrap; 
+        overflow: hidden;
+        text-overflow: ellipsis; 
     }
     
     .sub-title {
-        font-size: 16px;
+        font-size: 14px;
         color: #ffe0e6;
         text-align: center;
-        margin-top: 10px;
+        margin-top: 8px;
     }
     
     .stFileUploader label {
@@ -67,18 +72,21 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# 4. 우측 상단 로고 배치
+# 4. 상단 레이아웃 표시 (기존 로고 및 제목 로직 유지)
 logo_path = "melonticketlogo.png"
 if os.path.exists(logo_path):
     logo_base64 = get_image_base64(logo_path)
-    st.markdown(
-        f"""
-        <div class="top-right-logo">
-            <img src="data:image/png;base64,{logo_base64}">
-        </div>
-        """, 
-        unsafe_allow_html=True
-    )
+    st.markdown(f"<div class='top-right-logo'><img src='data:image/png;base64,{logo_base64}'></div>", unsafe_allow_html=True)
+
+st.markdown(
+    """
+    <div class='header-container'>
+        <h1 class='main-title'>Jazz UP Your Soul</h1>
+        <p class='sub-title'>프꾸 w.서울재즈페스티벌</p>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
 
 # 5. 중앙 제목 및 자막 표시
 st.markdown(
