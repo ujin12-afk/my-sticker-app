@@ -14,7 +14,7 @@ def get_image_base64(path):
 # 2. 페이지 설정
 st.set_page_config(page_title="Jazz UP Your Soul", layout="centered")
 
-# 3. 디자인 및 레이아웃 설정 (태그 강제 고정 버전)
+# 3. 디자인 및 레이아웃 설정
 st.markdown(
     """
     <style>
@@ -22,7 +22,7 @@ st.markdown(
         background-color: #f96c88;
     }
     
-    /* 오른쪽 상단 로고 (절대 위치) */
+    /* 오른쪽 상단 로고 */
     .top-right-logo {
         position: absolute;
         top: 10px;
@@ -38,14 +38,14 @@ st.markdown(
     .header-container {
         width: 100%;
         text-align: center;
-        margin-top: 45px; /* 로고와 겹치지 않게 넉넉히 내림 */
+        margin-top: 45px;
         margin-bottom: 25px;
         padding: 0 20px;
     }
     
-    /* ⭐ h1 대신 일반 div를 사용하여 브라우저의 자동 확대를 방지 */
+    /* 메인 제목 (28px로 상향 조정) */
     .fix-main-title {
-        font-size: 26px !important; 
+        font-size: 28px !important; 
         font-weight: 800 !important;
         color: white !important;
         margin: 0 !important;
@@ -53,26 +53,26 @@ st.markdown(
         line-height: 1.1 !important;
         white-space: nowrap !important;
         display: block !important;
-    
+    } /* 👈 아까 여기서 이 중괄호가 빠져있었어요! */
+
+    /* 부제목 */
     .fix-sub-title {
         font-size: 14px !important;
         color: #ffe0e6 !important;
         text-align: center !important;
         margin-top: 10px !important;
         display: block !important;
-        opacity: 1 !important; /* 투명도 방지 */
+        opacity: 1 !important;
     }
     
-    /* ⭐ '프로필 사진을 넣어주세요' 라벨 색상 강제 흰색 고정 */
-    .stFileUploader label p {
+    /* '프로필 사진을 넣어주세요' 라벨 및 내부 텍스트 강제 흰색 고정 */
+    [data-testid="stFileUploader"] label, 
+    [data-testid="stFileUploader"] label p {
         color: white !important;
     }
-    .stFileUploader label {
-        color: white !important;
-    }
-    
-    /* 업로드 박스 안의 안내 문구들 */
-    .st-emotion-cache-1ae8k9d, .st-emotion-cache-16idsys p {
+
+    /* 업로드 박스 안의 작은 안내 문구들까지 흰색 계열로 */
+    [data-testid="stFileUploadDropzone"] div {
         color: rgba(255, 255, 255, 0.8) !important;
     }
     </style>
@@ -80,7 +80,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# 4. 제목 및 로고 실제 표시 (h1 태그 제거 버전)
+# 4. 제목 및 로고 실제 표시
 logo_path = "melonticketlogo.png"
 if os.path.exists(logo_path):
     logo_base64 = get_image_base64(logo_path)
