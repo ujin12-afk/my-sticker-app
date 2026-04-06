@@ -38,7 +38,7 @@ st.markdown(
     /* 메인 제목 스타일 (대폭 축소) */
     .main-title {
         /* ⭐ 제목 크기를 이전보다 더 줄였습니다. (기존 22px~28px -> 현재 18px~22px) */
-        font-size: clamp(18px, 5vw, 22px); 
+        font-size: clamp(12px, 5vw, 18px); 
         font-weight: bold;
         color: white; /* 분홍 배경에 맞춰 흰색 글씨 */
         margin: 0;
