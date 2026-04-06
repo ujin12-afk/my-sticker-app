@@ -8,7 +8,7 @@ st.set_page_config(page_title="Jazz UP Your Soul ♫", layout="centered")
 st.markdown(
     """
     <div style='display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; margin-bottom: 30px;'>
-        <h1 style='text-align: center; font-size: 28px; white-space: nowrap; margin: 0; padding-right: 5px;'>
+        <h1 style='text-align: center; font-size: 28px; white-space: nowrap; margin: 0; padding-right: 10px;'>
             Jazz UP Your Soul ♫
         </h1>
         <p style='text-align: center; font-size: 16px; color: #666; margin-top: 5px;'>
