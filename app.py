@@ -32,7 +32,7 @@ st.markdown(
         margin-bottom: 20px;
         width: 100%;
         /* ⭐ 핵심: 양옆 여백을 줘서 로고가 화면 끝에 붙어 잘리는 것 방지 */
-        padding: 0 15px; 
+        padding: 0 20px; 
     }
     
     /* 메인 제목 스타일 (대폭 축소) */
