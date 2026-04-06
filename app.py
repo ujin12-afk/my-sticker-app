@@ -60,10 +60,20 @@ st.markdown(
         text-align: center !important;
         margin-top: 10px !important;
         display: block !important;
+        opacity: 1 !important; /* 투명도 방지 */
     }
     
+    /* ⭐ '프로필 사진을 넣어주세요' 라벨 색상 강제 흰색 고정 */
+    .stFileUploader label p {
+        color: white !important;
+    }
     .stFileUploader label {
         color: white !important;
+    }
+    
+    /* 업로드 박스 안의 안내 문구들 */
+    .st-emotion-cache-1ae8k9d, .st-emotion-cache-16idsys p {
+        color: rgba(255, 255, 255, 0.8) !important;
     }
     </style>
     """, 
