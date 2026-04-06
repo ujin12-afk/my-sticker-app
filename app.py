@@ -14,7 +14,7 @@ def get_image_base64(path):
 # 2. 페이지 설정
 st.set_page_config(page_title="Jazz UP Your Soul", layout="centered")
 
-# 3. 디자인 및 레이아웃 설정 (고정 크기 최적화)
+# 3. 디자인 및 레이아웃 설정 (태그 강제 고정 버전)
 st.markdown(
     """
     <style>
@@ -22,44 +22,45 @@ st.markdown(
         background-color: #f96c88;
     }
     
-    /* 오른쪽 상단 로고 (더 작고 안전하게) */
+    /* 오른쪽 상단 로고 (절대 위치) */
     .top-right-logo {
         position: absolute;
-        top: 8px;
-        right: 12px;
+        top: 10px;
+        right: 15px;
         z-index: 100;
     }
     .top-right-logo img {
-        width: 35px; /* 로고 크기를 더 줄여서 간섭 최소화 */
+        width: 35px;
         height: auto;
-        opacity: 0.8;
     }
 
-    /* 제목 영역 */
+    /* 제목 컨테이너 */
     .header-container {
         width: 100%;
         text-align: center;
-        margin-top: 35px; /* 로고 아래로 충분히 내려오게 */
-        margin-bottom: 20px;
-        padding: 0 10px;
+        margin-top: 45px; /* 로고와 겹치지 않게 넉넉히 내림 */
+        margin-bottom: 25px;
+        padding: 0 20px;
     }
     
-    .main-title {
-        /* ⭐ 가변 단위 대신 안전한 고정 크기(20px) 사용 */
-        font-size: 20px; 
-        font-weight: bold;
-        color: white !important;
-        margin: 0;
-        padding: 0;
-        line-height: 1.2;
-        white-space: nowrap; /* 한 줄 유지 */
+    /* ⭐ h1 대신 일반 div를 사용하여 브라우저의 자동 확대를 방지 */
+    .fix-main-title {
+        font-size: 22px !important; /* !important로 강제 고정 */
+        font-weight: 800 !important;
+        color: #ffe0e6 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1.1 !important;
+        white-space: nowrap !important;
+        display: block !important;
     }
     
-    .sub-title {
-        font-size: 13px; /* 부제목도 조금 더 축소 */
-        color: #ffe0e6;
-        text-align: center;
-        margin-top: 6px;
+    .fix-sub-title {
+        font-size: 14px !important;
+        color: #ffe0e6 !important;
+        text-align: center !important;
+        margin-top: 10px !important;
+        display: block !important;
     }
     
     .stFileUploader label {
@@ -70,18 +71,17 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# 4. 우측 상단 로고 실제 배치
+# 4. 제목 및 로고 실제 표시 (h1 태그 제거 버전)
 logo_path = "melonticketlogo.png"
 if os.path.exists(logo_path):
     logo_base64 = get_image_base64(logo_path)
     st.markdown(f"<div class='top-right-logo'><img src='data:image/png;base64,{logo_base64}'></div>", unsafe_allow_html=True)
 
-# 5. 중앙 제목 및 자막 표시
 st.markdown(
     """
     <div class='header-container'>
-        <h1 class='main-title'>Jazz UP Your Soul</h1>
-        <p class='sub-title'>프꾸 w.서울재즈페스티벌</p>
+        <div class='fix-main-title'>Jazz UP Your Soul</div>
+        <div class='fix-sub-title'>프꾸 w.서울재즈페스티벌</div>
     </div>
     """, 
     unsafe_allow_html=True
