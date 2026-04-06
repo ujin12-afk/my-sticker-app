@@ -153,7 +153,7 @@ if uploaded_file:
                 buf = io.BytesIO()
                 result_img.save(buf, format="PNG")
                 st.download_button(
-                    label="📥 원형 프사 다운로드 (PNG)",
+                    label="📥 원형 프사 다운로드",
                     data=buf.getvalue(),
                     file_name="sjf_profile_result.png",
                     mime="image/png"
