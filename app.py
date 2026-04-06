@@ -7,17 +7,14 @@ import io
 st.set_page_config(page_title="Jazz UP Your Soul✨", layout="centered")
 st.markdown(
     """
-    <h1 style='text-align: center; font-size: 26px; white-space: nowrap; margin-bottom: 5px;'>
-        Jazz UP Your Soul✨
-    </h1>
-    """, 
-    unsafe_allow_html=True
-)
-st.markdown(
-    """
-    <p style='text-align: center; font-size: 16px; color: #666; margin-bottom: 30px;'>
-        프사에 서재페 스티커 붙이기
-    </p>
+    <div style='text-align: center; width: 100%;'>
+        <h1 style='font-size: 26px; white-space: nowrap; margin-bottom: 5px; display: block;'>
+            Jazz UP Your Soul✨
+        </h1>
+        <p style='font-size: 16px; color: #666; margin-bottom: 30px; display: block;'>
+            프사에 서재페 스티커 붙이기
+        </p>
+    </div>
     """, 
     unsafe_allow_html=True
 )
