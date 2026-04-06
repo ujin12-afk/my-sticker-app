@@ -14,24 +14,23 @@ def get_image_base64(path):
 # 2. 페이지 설정
 st.set_page_config(page_title="Jazz UP Your Soul", layout="centered")
 
-# 3. 디자인 및 레이아웃 설정 (CSS)
+# 3. 디자인 및 레이아웃 설정 (고정 크기 최적화)
 st.markdown(
     """
     <style>
-    /* 전체 배경색 분홍색 */
     .stApp {
         background-color: #f96c88;
     }
     
-    /* 오른쪽 상단 로고 (아주 작게 35px) */
+    /* 오른쪽 상단 로고 (더 작고 안전하게) */
     .top-right-logo {
         position: absolute;
-        top: 5px;
-        right: 10px;
+        top: 8px;
+        right: 12px;
         z-index: 100;
     }
     .top-right-logo img {
-        width: 35px; 
+        width: 35px; /* 로고 크기를 더 줄여서 간섭 최소화 */
         height: auto;
         opacity: 0.8;
     }
@@ -40,30 +39,29 @@ st.markdown(
     .header-container {
         width: 100%;
         text-align: center;
-        margin-top: 30px;
-        margin-bottom: 25px;
+        margin-top: 35px; /* 로고 아래로 충분히 내려오게 */
+        margin-bottom: 20px;
         padding: 0 10px;
     }
     
     .main-title {
-        /* 화면 너비에 따라 글자 크기 자동 조절 (한 줄 유지) */
-        font-size: clamp(18px, 7vw, 22px); 
+        /* ⭐ 가변 단위 대신 안전한 고정 크기(20px) 사용 */
+        font-size: 20px; 
         font-weight: bold;
         color: white !important;
         margin: 0;
         padding: 0;
         line-height: 1.2;
-        white-space: nowrap; 
+        white-space: nowrap; /* 한 줄 유지 */
     }
     
     .sub-title {
-        font-size: 14px;
+        font-size: 13px; /* 부제목도 조금 더 축소 */
         color: #ffe0e6;
         text-align: center;
-        margin-top: 8px;
+        margin-top: 6px;
     }
     
-    /* 업로드 안내 문구 흰색 */
     .stFileUploader label {
         color: white !important;
     }
