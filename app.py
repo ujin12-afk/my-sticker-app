@@ -5,13 +5,34 @@ import io
 
 # 1. 페이지 설정 및 제목
 st.set_page_config(page_title="Jazz UP Your Soul✨", layout="centered")
+# 1. 전체 페이지 레이아웃을 중앙으로 강제하는 CSS 추가
 st.markdown(
     """
-    <div style='text-align: center; width: 100%;'>
-        <h1 style='font-size: 26px; white-space: nowrap; margin-bottom: 5px; display: block;'>
+    <style>
+    /* 전체 컨테이너 중앙 정렬 */
+    .main > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    /* 업로드 컴포넌트 너비 조절 (선택사항) */
+    .stFileUploader {
+        width: 100%;
+        max-width: 500px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# 2. 제목 및 부제목 (기존 코드 유지하되 상위 div 정렬 보강)
+st.markdown(
+    """
+    <div style='text-align: center;'>
+        <h1 style='font-size: 26px; white-space: nowrap; margin-bottom: 5px;'>
             Jazz UP Your Soul✨
         </h1>
-        <p style='font-size: 16px; color: #666; margin-bottom: 30px; display: block;'>
+        <p style='font-size: 16px; color: #666; margin-bottom: 30px;'>
             프사에 서재페 스티커 붙이기
         </p>
     </div>
