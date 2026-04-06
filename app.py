@@ -44,7 +44,7 @@ if uploaded_file:
             buf = io.BytesIO()
             result_img.convert("RGB").save(buf, format="JPEG")
             st.download_button(
-                label="📥 결과 이미지 다운로드",
+                label="📥 NEW 프로필 다운로드",
                 data=buf.getvalue(),
                 file_name="jazz_up_profile.jpg",
                 mime="image/jpeg"
