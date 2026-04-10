@@ -126,8 +126,13 @@ if uploaded_file:
         # --- [STEP 1: 원본 이미지 불러오기 & 방향 보정] ---
         temp_img = Image.open(uploaded_file)
         
-        # ⭐ 진짜 완벽 해결 포인트: 사진의 EXIF 회전 정보를 확인해서 똑바로 세워줍니다!
+        # EXIF 회전 정보를 확인해서 똑바로 세워줍니다
         base_img = ImageOps.exif_transpose(temp_img).convert("RGBA")
+        
+        # ⭐ 서버 부하 방지용 리사이징 코드 추가
+        # 사진의 가로나 세로 중 긴 쪽이 1000px을 넘으면 1000px로 줄입니다.
+        if max(base_img.size) > 1000:
+            base_img.thumbnail((1000, 1000), Image.LANCZOS)
         
         # --- [STEP 2: 원형 프사 크롭 및 스티커 합성] ---
         # (이후 로직은 기존과 동일하지만 전체 교체를 위해 포함합니다)
